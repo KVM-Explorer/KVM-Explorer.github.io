@@ -13,7 +13,7 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.586f1959.css">
-<script src="/assets/js/runtime~main.bc9bc7c9.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.581a0f31.js" defer="defer"></script>
 <script src="/assets/js/main.9d1b20ae.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -186,9 +186,6 @@ f \rightarrow -1
 <p><img decoding="async" loading="lazy" src="https://markdown-image-1302476306.cos.ap-nanjing.myqcloud.com/202403310103235.png" alt="image.png" class="img_ev3q"></p>
 <p><img decoding="async" loading="lazy" src="https://markdown-image-1302476306.cos.ap-nanjing.myqcloud.com/202403310102327.png" alt="image.png" class="img_ev3q"></p>
 <p>当然，在软件光栅化自己实现的过程中也可以不做处理，但是在深度测试时，应该注意转换深度到 0-255，并且深度值 Z 越大，距离相机越远,</p>
-<ul class="contains-task-list containsTaskList_mC6p">
-<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->因为实际对应的Z是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mi>z</mi></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{z}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1901em;vertical-align:-0.345em"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8451em"><span style="top:-2.655em"><span class="pstrut" style="height:3em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.04398em">z</span></span></span></span><span style="top:-3.23em"><span class="pstrut" style="height:3em"></span><span class="frac-line" style="border-bottom-width:0.04em"></span></span><span style="top:-3.394em"><span class="pstrut" style="height:3em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> ??。进一步解释说明</li>
-</ul>
 <span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Z</mi><mo>:</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>n</mi><mo>→</mo><mo>−</mo><mn>1</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mi>f</mi><mo>→</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">Z:
 \begin{cases}
 n \rightarrow -1 \\
@@ -279,7 +276,8 @@ H403z M403 1759 V0 H319 V1759 v1200 v1759 h84z"></path></svg></span></span></spa
 M347 1759 V0 H263 V1759 v1200 v1759 h84z"></path></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.15em"><span></span></span></span></span></span></span></span></span></span></span></span>
 <p><img decoding="async" loading="lazy" src="https://markdown-image-1302476306.cos.ap-nanjing.myqcloud.com/202403111253066.png" alt="image.png" class="img_ev3q"></p>
 <blockquote>
-<p>在投影和变化到归一化坐标的两个过程中，我们考虑前者的缩放是基于原点和 Z 轴向进行，而对于后者我们是将中心不在 Z 轴的平面标准化并迁移到 Z 轴也就是我们的参考点是屏幕中心点和 Z 轴向两者的参考坐标不同，而两步操作在计算上是否存在先后依赖关系？</p>
+<p>在投影和变化到归一化坐标的两个过程中，我们考虑前者的缩放是基于原点和 Z 轴向进行，而对于后者我们是将中心不在 Z 轴的平面，标准化并迁移到 Z 轴。也就是我们的参考点是屏幕中心点和 Z 轴向两者的参考坐标不同，而两步操作在计算上是否存在先后依赖关系？
+若上述操作均为线性操作，则可以互换顺序，但是因为投影过程本身是个非线性操作，因而不应该改变计算顺序，应该先投影再归一化</p>
 </blockquote>
 <p><strong>注意：</strong>
 我们在之前计算的过程中，利用了齐次坐标系的性质，因而最终我们都在原有 xyz 分量的基础上乘齐次项 w，也就是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>z</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">z_e</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.04398em">z</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em"><span style="top:-2.55em;margin-left:-0.044em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">e</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em"><span></span></span></span></span></span></span></span></span></span> 。因而，在后续计算之前我们需要对 XYZ 分量除以计算得到的 W 分量有如下</p>
