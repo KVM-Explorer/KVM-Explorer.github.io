@@ -1,18 +1,18 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://kvm-explorer.github.io/'
 languageCode = 'en-us'
 defaultContentLanguage = 'en'
-title = 'My New Hugo Site'
-hasCJKLanguage = false
+title = 'KVM-Explorer Blog'
+hasCJKLanguage = true
 # summaryLength = 80
-paginate = 3
+paginate = 10
 
 theme = "hulga"
 
 [params]
   # show in HTML meta tag
-  author = "Jonn Doe"
-  keywords = "HTML, hugo, CSS"
-  description = "John Doe's blog"
+  author = "KVM-Explorer"
+  keywords = "hugo, C++, Compute Graphics, rendering"
+  description = "KVM-Explorer's Blog/Note"
 
   # change bulma's primary color
   # primaryColor = "#3e50b4"
@@ -28,10 +28,10 @@ theme = "hulga"
   subtitle = "This is a subtitle"
 
   # copyright text on footer
-  copyright = "Copyright © 2024 John Doe. All rights reserved."
+  copyright = "Copyright © 2024 KVM-Explorer. All rights reserved."
 
   # enable katex rendering on every post page, default false
-  math = false
+  math = true
 
   # enable postcss, mainly for css purge (713kB->155kB->20kB gzipped, but this makes build slower), default false
   postcss = true
@@ -39,8 +39,8 @@ theme = "hulga"
   # enable showing content summary below post title in home page, default false
   showSummary = true
 
-  # set paginate on taxonomy term page (tags or categories), default 10
-  termPaginate = 5
+  # set paginate on taxonomy term page (tags or categories), default 10 # This params conflict with hugo global config in line 7
+  termPaginate = 10
 
   # enable toc on every post page, default false
   toc = true
