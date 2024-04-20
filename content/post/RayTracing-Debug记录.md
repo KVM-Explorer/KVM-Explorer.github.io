@@ -4,7 +4,7 @@ date: 2024-04-20T20:25:11+08:00
 description: RayTracing in one weekend debug
 math: true
 tags: [debug, Raytracing]
-categories: [Compute Graphics]
+categories: [Computer Graphics]
 ---
 
 ## Problem
