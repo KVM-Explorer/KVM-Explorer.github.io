@@ -31,7 +31,7 @@ theme = "hulga"
   copyright = "Copyright © 2024 KVM-Explorer. All rights reserved."
 
   # enable katex rendering on every post page, default false
-  math = true
+  math = false
 
   # enable postcss, mainly for css purge (713kB->155kB->20kB gzipped, but this makes build slower), default false
   postcss = true
