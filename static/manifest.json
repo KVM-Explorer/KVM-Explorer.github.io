@@ -1,0 +1,140 @@
+{
+  "name": "KVM-Explorer's Blog",
+  "short_name": "Blog",
+  "description": "Just for fun!",
+  "icons": [
+    
+    {
+      "src": "wps/android/android-launchericon-512-512.png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "wps/android/android-launchericon-192-192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "wps/android/android-launchericon-144-144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "wps/android/android-launchericon-96-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "wps/android/android-launchericon-72-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "wps/android/android-launchericon-48-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "wps/ios/16.png",
+      "sizes": "16x16"
+    },
+    {
+      "src": "wps/ios/20.png",
+      "sizes": "20x20"
+    },
+    {
+      "src": "wps/ios/29.png",
+      "sizes": "29x29"
+    },
+    {
+      "src": "wps/ios/32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "wps/ios/40.png",
+      "sizes": "40x40"
+    },
+    {
+      "src": "wps/ios/50.png",
+      "sizes": "50x50"
+    },
+    {
+      "src": "wps/ios/57.png",
+      "sizes": "57x57"
+    },
+    {
+      "src": "wps/ios/58.png",
+      "sizes": "58x58"
+    },
+    {
+      "src": "wps/ios/60.png",
+      "sizes": "60x60"
+    },
+    {
+      "src": "wps/ios/64.png",
+      "sizes": "64x64"
+    },
+    {
+      "src": "wps/ios/72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "wps/ios/76.png",
+      "sizes": "76x76"
+    },
+    {
+      "src": "wps/ios/80.png",
+      "sizes": "80x80"
+    },
+    {
+      "src": "wps/ios/87.png",
+      "sizes": "87x87"
+    },
+    {
+      "src": "wps/ios/100.png",
+      "sizes": "100x100"
+    },
+    {
+      "src": "wps/ios/114.png",
+      "sizes": "114x114"
+    },
+    {
+      "src": "wps/ios/120.png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "wps/ios/128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "wps/ios/144.png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "wps/ios/152.png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "wps/ios/167.png",
+      "sizes": "167x167"
+    },
+    {
+      "src": "wps/ios/180.png",
+      "sizes": "180x180"
+    },
+    {
+      "src": "wps/ios/192.png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "wps/ios/256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "wps/ios/512.png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1793d1",
+  "theme_color": "#1793d1"
+}
+
+
+  
