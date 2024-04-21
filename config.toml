@@ -111,3 +111,6 @@ tag = "tags"
   [module.hugoVersion]
     extended = true
     min = "0.110.0"
+
+[frontmatter]
+  lastmod = ['lastmod', ':git', ':fileModTime', 'date', 'publishDate']
