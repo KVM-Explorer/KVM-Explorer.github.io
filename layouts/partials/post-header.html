@@ -9,7 +9,7 @@
       </h1>
       <h2 class="subtitle">
         {{- if isset .Params "date" -}}
-        <div style="margin: inherit;">
+        <div style="margin: inherit;font-size: initial;">
           Publish: <time>{{ .Date.Format "2006/01/02" }}</time> |
           Update: <time>{{ .Lastmod.Format "2006/01/02" }}</time> 
         </div>
