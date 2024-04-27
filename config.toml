@@ -1,6 +1,6 @@
 baseURL = 'https://kvm-explorer.github.io/'
-languageCode = 'en-us'
-defaultContentLanguage = 'en'
+languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
 title = 'KVM-Explorer Blog'
 hasCJKLanguage = true
 # summaryLength = 80
@@ -25,7 +25,7 @@ theme = "hulga"
   # linkColor = "#ff3f80"
 
   # subtitle on homepage
-  subtitle = "keep loving, keep fun"
+  subtitle = "keep fancy, keep fun"
 
   # copyright text on footer
   copyright = "Copyright © 2024 KVM-Explorer. All rights reserved."
@@ -65,6 +65,9 @@ theme = "hulga"
 
   # disable jsdelivr cdn, default false
   noCDN = false
+
+  # Enable Site statistics 
+  busuanzi = true
 
 # for postcss-purgecss
 # see https://purgecss.com/guides/hugo.html
@@ -113,4 +116,4 @@ tag = "tags"
     min = "0.110.0"
 
 [frontmatter]
-  lastmod = ['lastmod', ':git', ':fileModTime', 'date', 'publishDate']
+  lastmod = [ ':git','lastmod','date']
