@@ -67,7 +67,6 @@ theme = "hulga"
   noCDN = false
 
   # Enable Site statistics 
-  busuanzi = true
 
 # for postcss-purgecss
 # see https://purgecss.com/guides/hugo.html
