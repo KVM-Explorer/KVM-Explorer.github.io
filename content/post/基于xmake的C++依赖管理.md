@@ -3,7 +3,7 @@ title: 基于xmake的C++依赖管理
 date: 2024-08-07T23:19:44+08:00
 math: false
 toc: true
-tags: [工程管理、cpp、xmake]
+tags: [工程管理,cpp,xmake]
 categories: [软件工程]
 
 ---
