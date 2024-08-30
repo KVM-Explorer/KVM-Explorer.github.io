@@ -146,6 +146,46 @@ in xmake-repo:
   -> spdlog v1.14.1 [header_only:n, runtimes:"MT", toolchains:"clang-cl", std_format:y]
 ```
 
+### 子模块依赖配置
+
+在打包程序依赖时，我们有时候希望尽可能轻量化即打包尽可能少的依赖，对于部分第三方库诸如Boost、OpenCV等其提供部分依赖子模块以实现精简环境依赖，此时仅仅需要在config中指定依赖的子模块即可实现部分依赖导入,这里以boost为例
+
+```lua
+add_requires("boost",{configs={log=true,system=true,filesystem=true,thread=true,regex=true,program_options=true,json=true}})
+
+target("HelloWorld")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    add_packages("boost")
+
+```
+
+### 依赖别名
+
+部分情况下我们使用xmake导入其他第三方管理器中的包时，包的查找和使用都应该使用相同的名字，为简化命名我们可以使用alias为部分依赖包简化命名，其对应例子如下
+
+```lua
+add_requires("cmake::tbb","apt::libopencv-dev")
+target("HelloWorld")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    add_packages("cmake::tbb","apt::libopencv-dev)
+```
+
+使用简化别名后
+
+```lua
+add_requires("conan::zlib/1.2.11", {alias = "zlib", debug = true})
+add_requires("conan::openssl/1.1.1g", {alias = "openssl",
+    configs = {options = "OpenSSL:shared=True"}})
+
+target("test")
+    set_kind("binary")
+    add_files("src/*.c")
+    add_packages("openssl", "zlib")
+```
+
+
 ### 批量包默认配置
 
 当存在多个依赖包时，可能需要默认配置选项。xmake 提供了一个默认配置定义接口 `add_requireconfs`，可以为不同的包依赖提供默认配置，同时针对个别包可以单独配置覆盖默认配置
