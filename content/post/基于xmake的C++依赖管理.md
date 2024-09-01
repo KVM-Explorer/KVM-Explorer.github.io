@@ -199,7 +199,6 @@ target("test")
     add_packages("openssl", "zlib")
 ```
 
-
 ### 批量包默认配置
 
 当存在多个依赖包时，可能需要默认配置选项。xmake 提供了一个默认配置定义接口 `add_requireconfs`，可以为不同的包依赖提供默认配置，同时针对个别包可以单独配置覆盖默认配置
@@ -217,12 +216,21 @@ add_requires("libcurl", {configs = {shared = false}})
 在整个项目的最顶级目录的根xmake.lua 添加如下代码，其作为一个全局配置会导出当前以及所有附属的xmake项目的依赖环境
 
 ```lua
+
+add_requires("spdlog")
+set_toolchains("clang-cl")
 set_policy("package.requires_lock", true)
+
+target("Test")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    add_packages("spdlog")
+
 ```
 
-当项目完成构建后会在项目中生成当前项目依赖的环境已经对应的版本和编译器信息
+当项目完成构建后会在项目中生成当前项目依赖的环境已经对应的版本和来源信息
 
-```json
+```
 {
     __meta__ = {
         version = "1.0"
@@ -240,9 +248,7 @@ set_policy("package.requires_lock", true)
 }
 ```
 
-```json
 
-```
 
 # Ref
 
