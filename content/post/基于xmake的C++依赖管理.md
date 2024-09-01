@@ -45,7 +45,7 @@ target("HelloWorld")
 
 ## xmake包管理优势
 
-- 统一的包管理配置和项目构建
+- 统一的包管理配置和项目构建，避免不同平台特化
 - 多版本第三方库配置和使用
 - 支持独立的虚拟环境，避免不同project依赖干扰并实现环境复用
 - 可基于项目工具链单独编译依赖包，避免系统上多个编译器的潜在冲突
@@ -59,6 +59,9 @@ target("HelloWorld")
 - 由于大多数第三方库托管在github，因而可能在下载时有不稳定的问题
 - 依赖库为避免冲突使用hash生成包名，可读性较差
 - 可以利用`xrepo scan <包名>` 扫描当前系统已经安装的包
+
+必须承认的是，由于不同平台的主流编译器（gcc、msvc、clang）在部分功能功能方面存在差异因而需要单独配置参数，因而有了冗长的项目配置文件，这一点无论是在哪种构建工具中都不可避免；另一方面
+由于不同平台的默认包管理工具存在差异，因而造成不同系统版本依赖和依赖查找方面的不同，这一点在xmake中使用xrepo进行包管理，可以相对较好的进行统一配置解决不同包管理的问题。
 
 ## xmake中依赖包可配置项
 
@@ -78,6 +81,11 @@ xmake require --info spdlog
 - 部署和安装位置
 - requires -> configs 基于当前项目已经确定的配置信息
 - configs 依赖包的可配置项
+  - 包的子模块
+  - 依赖形式(header/lib)
+  - 内部实现形式
+  - char/wcahr
+  - 等等
 - configs(builtin) 默认所有包配置项和当前项目对其的配置选项
 - references 当前的项目
 
@@ -148,7 +156,13 @@ in xmake-repo:
 
 ### 子模块依赖配置
 
-在打包程序依赖时，我们有时候希望尽可能轻量化即打包尽可能少的依赖，对于部分第三方库诸如Boost、OpenCV等其提供部分依赖子模块以实现精简环境依赖，此时仅仅需要在config中指定依赖的子模块即可实现部分依赖导入,这里以boost为例
+在打包程序依赖时，我们有时候希望尽可能轻量化即打包尽可能少的依赖，对于部分第三方库诸如Boost、OpenCV等其提供部分依赖子模块以实现精简环境依赖，此时仅仅需要在config中指定依赖的子模块即可实现部分依赖导入,这里以boost为例。仍然我们首先进入一个xmake项目通过`require`命令查询boost的可配置参数。
+
+```bash
+xmake require --info boost
+```
+
+可以看到boost的子模块类似之前提到的spdlog中的可配置项，在configs中进行配置，进而有如下例子
 
 ```lua
 add_requires("boost",{configs={log=true,system=true,filesystem=true,thread=true,regex=true,program_options=true,json=true}})
@@ -206,7 +220,30 @@ add_requires("libcurl", {configs = {shared = false}})
 set_policy("package.requires_lock", true)
 ```
 
+当项目完成构建后会在项目中生成当前项目依赖的环境已经对应的版本和编译器信息
+
+```json
+{
+    __meta__ = {
+        version = "1.0"
+    },
+    ["windows|x64"] = {
+        ["spdlog#31fecfc4"] = {
+            repo = {
+                branch = "master",
+                commit = "14e0c93cb3fc719a451ada1cf36f6951bb408b14",
+                url = "https://gitee.com/tboox/xmake-repo.git"
+            },
+            version = "v1.13.0"
+        }
+    }
+}
+```
+
+```json
+
+```
+
 # Ref
 
 - [xmake](https://xmake.io/#/)
-  -
