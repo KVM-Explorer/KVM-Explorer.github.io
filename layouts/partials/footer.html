@@ -8,8 +8,10 @@
     {{ .Site.Copyright }}
     {{ end }}
     </p>
-  </div>
+    {{- /* busuanzi plugin */ -}}
+    {{- partial "plugin/busuanzi.html" (dict "params" .Site.Params.busuanzi "bsz_type" "footer") -}}
 
+  </div>
 </footer>
 {{ if .Site.Params.pwa }}
 {{ partial "pwa.html" . }}
