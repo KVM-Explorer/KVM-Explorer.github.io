@@ -12,9 +12,11 @@
         <div style="margin: inherit;font-size: initial;">
           Publish: <time>{{ .Date.Format "2006/01/02" }}</time> |
           Update: <time>{{ .Lastmod.Format "2006/01/02" }}</time> 
+          {{- /* busuanzi plugin */ -}}
+          {{- partial "plugin/busuanzi.html" (dict "params" .Site.Params.busuanzi "bsz_type" "page-reading") -}}
         </div>
-
         {{- end -}}
+
         {{- $ctx := . -}}
           {{ with (.GetTerms "categories") }} ・
             {{- range . -}}
